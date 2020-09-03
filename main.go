@@ -336,10 +336,10 @@ var validCodes = map[string]Currency{
 	"ZWD": ZimbabweDollar,
 }
 
-func GetByCode(code string) (*Currency, error) {
+func GetByCode(code string) (Currency, error) {
 	c, exists := validCodes[code]
 	if !exists {
-		return nil, errors.New("Currency code not found")
+		return "", errors.New("Currency code not found")
 	}
-	return &c, nil
+	return c, nil
 }
